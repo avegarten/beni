@@ -1,25 +1,32 @@
-require 'sinatra'
-require 'fileutils'
-require 'json'
-require 'sqlite3'
+require 'bundler'
+Bundler.require
 
-# setup
-set :bind, '0.0.0.0'
-set :port, 9000
-beni_store = "#{Dir.pwd}/books"
-# beni_store would be the actually destination on your local disk.
-# yeah, and check if this is still right after now beni.rb is in /lib
+class Beni < Sinatra::Base
+  set :bind, '0.0.0.0'
+  set :port, 9000
+  set :views, File.join(settings.root, '..', 'views')  
+  beni_books = File.expand_path('../books', __dir__)
 
-# sqlite for uploading book metadata, yeah. add this some time soon but its like, 2am and im going to bed instead
+  # beni_books would be the actually destination on your local disk.
+  # sqlite for uploading book metadata for /book/:id, yeah. add this some time soon but its like, 2am and im going to bed instead
 
+  get '/' do
+    status 201
+    File.read(File.join(__dir__, '../views/index.html'))
+    # please please please change this to erb
+  end
+  
+  get '/book/:id' do
+    @id = params[:id]
+    erb :bookid
+    # independent book info pages
+  end
+  
+  not_found do
+    status 404
+      File.read(File.join(__dir__, '../views/oops.html'))
+      # also here, please please please change this to erb
+    end
+end 
 
-get '/' do
-  File.read(File.join(__dir__, '../views/index.html'))
-  # please please please change this to erb
-end
-
-not_found do
-  status 404
-  File.read(File.join(__dir__, '../views/oops.html'))
-  # also here, please please please change this to erb
-end
+Beni.run!
