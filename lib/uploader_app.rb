@@ -1,16 +1,13 @@
 require_relative 'base_app'
 
 class UploaderApp < BaseApp
-  # post '/upload' do
-  # # i mean, in the end it should upload
-  # end
-  beni_books = File.expand_path('../books', __dir__)
-  # beni_books would be the actually destination on your local disk.
-
+  post '/' do
+    tempfile = params[:file][:tempfile]
+    name = File.basename(params[:file][:filename])
+    digest = Digest::MD5.file(tempfile).hexdigest
+    # example "177ff1d368916a567c896c0c3a2d7bc4"
+    
+    final_dest = File.join('/home/avery/Work/ruby/sinatra/beni/books/', name)
+    FileUtils.cp tempfile.path, final_dest
+  end
 end
-
-
-#post /upload here and save to disk (OBJECTIVE)
-
-
-#if this works, ill honestly be surprised. 

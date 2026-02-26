@@ -3,36 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- xss prevention -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://cdn.simplecss.org; script-src 'self'; object-src 'none'; base-uri 'self';">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-
+  
   <title>beni</title>
-
 </head>
+
 <body>
-  <header>
     <h1>beni</h1>
     <p>deep in the rainforest?</p>      
-  </header>
-
   <main>
-    <p>publish</p>
-    
+    <p>publish</p>    
     <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="_method" value="put">
       <input type="file" name="file" required>
       <br><br>
       <input type="submit" value="Upload">
     </form>
-    
   </main>
-
   <footer>
     <p>&copy; avery -> very early development build 2026</p>
   </footer>
-  
 </body>
