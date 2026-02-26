@@ -13,16 +13,14 @@ class ViewsApp < BaseApp
   
   namespace '/bookstore' do
     get '/book/:id' do
-      # this is /bookstore/book/:id
+      # replace this with sqlite3
       @id = params[:id]
       erb :bookid
-      # independent book info pages. this is also very early testing.
     end
     
     get '/' do
       # this is /bookstore/
-      File.read(File.join(__dir__, '../views/bookstore.html'))
-      # testing for now, just turn this into erb soon when uploads work
+      erb :bookstore
     end
     
     get '' do
@@ -42,6 +40,5 @@ class ViewsApp < BaseApp
   not_found do
     status 404
       File.read(File.join(__dir__, '../views/oops.html'))
-      # also here, please please please change this to erb
-  end
+    end
 end

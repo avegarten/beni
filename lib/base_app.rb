@@ -13,8 +13,8 @@ class BaseApp < Sinatra::Base
   db.execute <<~SQL
     CREATE TABLE IF NOT EXISTS beni(
         hash TEXT PRIMARY KEY,
-        path TEXT NOT NULL,
-        original_name TEXT NOT NULL
+        final_dest TEXT NOT NULL,
+        name TEXT NOT NULL
     );
   SQL
 end 
