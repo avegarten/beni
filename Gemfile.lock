@@ -24,6 +24,7 @@ GEM
     bigdecimal (4.0.1)
     concurrent-ruby (1.3.6)
     connection_pool (3.0.2)
+    digest (3.2.1)
     drb (2.2.3)
     fileutils (1.8.0)
     i18n (1.14.8)
@@ -79,6 +80,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  digest
   fileutils
   json
   puma (~> 7.2)
@@ -96,6 +98,7 @@ CHECKSUMS
   bigdecimal (4.0.1) sha256=8b07d3d065a9f921c80ceaea7c9d4ae596697295b584c296fe599dd0ad01c4a7
   concurrent-ruby (1.3.6) sha256=6b56837e1e7e5292f9864f34b69c5a2cbc75c0cf5338f1ce9903d10fa762d5ab
   connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
+  digest (3.2.1) sha256=ab3312b4e272d7d5dc41c564c86a25861a1f34ac5153374199a0b74861395947
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
   fileutils (1.8.0) sha256=8c6b1df54e2540bdb2f39258f08af78853aa70bad52b4d394bbc6424593c6e02
   i18n (1.14.8) sha256=285778639134865c5e0f6269e0b818256017e8cde89993fdfcbfb64d088824a5
