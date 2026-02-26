@@ -15,12 +15,20 @@
 
 </head>
 <body>
-
+  <header>
     <h1>beni</h1>
-    <p>deep in the rainforest?</p>
+    <p>deep in the rainforest?</p>      
+  </header>
 
   <main>
-    <p>oops. not found?</p>
+    <p>publish</p>
+    
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" required>
+      <br><br>
+      <input type="submit" value="Upload">
+    </form>
+    
   </main>
 
   <footer>
